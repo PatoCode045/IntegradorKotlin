@@ -25,7 +25,10 @@ fun main(args: Array<String>) {
     println(parking.vehicles.size)*/
 
 
-    val myArray = arrayListOf<Vehicle>(car, minibus, moto, bus,
+
+    val car2 = Vehicle( "AA111AA", VehicleType.CAR, Calendar.getInstance(), "DISCOUNT_CARD_003")
+
+    val myArray = arrayListOf<Vehicle>(car, minibus, moto, bus, car2,
         Vehicle( "AA115AA", VehicleType.CAR, Calendar.getInstance()),
         Vehicle( "AA116AA", VehicleType.CAR, Calendar.getInstance()),
         Vehicle( "AA117AA", VehicleType.CAR, Calendar.getInstance()),
@@ -45,17 +48,25 @@ fun main(args: Array<String>) {
         Vehicle( "AA131AA", VehicleType.CAR, Calendar.getInstance())
     )
 
-    val parking = Parking(mutableSetOf())
+    val parkingSpace = ParkingSpace(mutableSetOf())
 
     myArray.forEach { vehicle ->
-        if (parking.addVehicle(vehicle)){
+        if (parkingSpace.parking.addVehicle(vehicle)){
             println("Welcome to AlkeParking!")
         }else{
             println("Sorry, the has check-in failed")
         }
     }
 
+    parkingSpace.checkOutVehicle(car.plate)
+    parkingSpace.checkOutVehicle(moto.plate)
+    parkingSpace.checkOutVehicle(bus.plate)
+    parkingSpace.checkOutVehicle(minibus.plate)
 
+    parkingSpace.checkOutVehicle("AA131AA")
+
+    parkingSpace.parking.showParkingEarnings()
+    parkingSpace.parking.listVehicles()
 
 }
 
