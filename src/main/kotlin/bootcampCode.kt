@@ -1,6 +1,5 @@
 import java.util.*
 import kotlin.random.Random
-import kotlin.random.nextInt
 import kotlin.random.nextLong
 
 const val MINUTES_IN_MILISECONDS = 60000
